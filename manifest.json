@@ -1,0 +1,95 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "version": "5.2",
+  "description": "__MSG_appDescription__",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "sidePanel",
+    "cookies",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "https://*.lovable.dev/*",
+    "https://api.lovable.dev/*",
+    "https://lovable.dev/*",
+    "https://lovable-api.com/*",
+    "https://storage.googleapis.com/*",
+    "http://localhost:8000/*",
+    "https://hawksystem.com.br/*",
+    "https://hawksystem-api.onrender.com/*",
+    "https://hawksystem-api.fly.dev/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {},
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.lovable.dev/*",
+        "https://lovable.dev/*",
+        "https://api.lovable.dev/*"
+      ],
+      "js": [
+        "hawk-auth.js",
+        "branding.config.js",
+        "i18n.js",
+        "jszip.min.js",
+        "hwFingerprint.js",
+        "lovable-payload.js",
+        "content-templates.js",
+        "content.js",
+        "overlay.js"
+      ],
+      "css": [
+        "floating.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pageHook.js"
+      ],
+      "matches": [
+        "https://*.lovable.dev/*",
+        "https://lovable.dev/*"
+      ]
+    },
+    {
+      "resources": [
+        "hawk-auth.js",
+        "sidepanel.html",
+        "sidepanel.css",
+        "sidepanel.js",
+        "sidepanel-templates.js",
+        "lovable-payload.js",
+        "branding.config.js",
+        "jszip.min.js",
+        "hwFingerprint.js",
+        "icons/*",
+        "i18n.js",
+        "images/*"
+      ],
+      "matches": [
+        "https://*.lovable.dev/*",
+        "https://lovable.dev/*"
+      ]
+    }
+  ],
+  "default_locale": "pt_BR"
+}
