@@ -44,6 +44,7 @@
         "https://api.lovable.dev/*"
       ],
       "js": [
+        "local-auth.js",
         "hawk-auth.js",
         "branding.config.js",
         "i18n.js",
@@ -63,7 +64,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "pageHook.js"
+        "pageHook.js",
+        "local-auth.js"
       ],
       "matches": [
         "https://*.lovable.dev/*",
@@ -72,6 +74,7 @@
     },
     {
       "resources": [
+        "local-auth.js",
         "hawk-auth.js",
         "sidepanel.html",
         "sidepanel.css",
